@@ -153,6 +153,8 @@ void move(short floor[MAX_SIZE][MAX_SIZE], int *current_direction, int coords[2]
 }
 
 //feel like this could be simplified but meh
+//probably should just have it return an int
+//instead of modifying the variable in the function
 void turn(int *cur_dir, int direction) {
    if(direction == TURN_RIGHT) {
       switch(*cur_dir) {
