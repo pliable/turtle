@@ -3,7 +3,12 @@
 #include "constants.h"
 
 /**
-   Program
+   Turtle program - This program will
+      read input and move a little turtle
+      around a map, drawing or not as it
+      moves around. The original spec was
+      a friends assignment but I did it
+      for fun.
 
    @author Steve Choo
 */
@@ -11,6 +16,9 @@ void print_arr(short floor[MAX_SIZE][MAX_SIZE]);
 void turn(int *cur_dir, int direction);
 void move(short floor[MAX_SIZE][MAX_SIZE], int *current_direction, int coords[2], int steps, int pen_position);
 
+/*
+   Could be optimized further probably, but works for the most part
+   */
 int main(int argc, char *argv[]) {
    int i, j, nastyflag = 0;
    int steps;
