@@ -13,6 +13,7 @@
    @author Steve Choo
 */
 void print_arr(short floor[MAX_SIZE][MAX_SIZE]);
+void print_opts(void);
 void turn(int *cur_dir, int direction);
 void move(short floor[MAX_SIZE][MAX_SIZE], int *current_direction, int coords[2], int steps, int pen_position);
 
@@ -20,7 +21,7 @@ void move(short floor[MAX_SIZE][MAX_SIZE], int *current_direction, int coords[2]
    Could be optimized further probably, but works for the most part
    */
 int main(int argc, char *argv[]) {
-   int i, j, nastyflag = 0;
+   int i, j;
    int steps;
    int pen_position = PEN_UP;
    int coord[2] = { 0, 0 };
@@ -35,7 +36,7 @@ int main(int argc, char *argv[]) {
 
 
    while(1) {
-      printf("Enter a command: ");
+      print_opts();
       scanf("%d", &current_command);
       printf("\n");
 
@@ -79,12 +80,24 @@ int main(int argc, char *argv[]) {
    return 0;
 }
 
+void print_opts() {
+      printf("1 - Raise pen\n");
+      printf("2 - Lower pen\n");
+      printf("3 - Turn right\n");
+      printf("4 - Turn left\n");
+      printf("5 - Move forward\n");
+      printf("6 - Print map\n");
+      printf("9 - Exit\n");
+      printf("Enter a command: ");
+}
+
+
 void move(short floor[MAX_SIZE][MAX_SIZE], int *current_direction, int coords[2], int steps, int pen_position) {
    int i;
    
    if(*current_direction == NORTH) {
       if(coords[Y] + steps > MAX_SIZE - 1) {
-         printf("Invalid move, out of bounds");
+         printf("Invalid move, out of bounds\n");
          return;
       }
       
